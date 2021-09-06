@@ -10,7 +10,7 @@ function Home(){
     function addURL(){
         axios.post(`${baseURL}/add`,url).then((res)=>{
            console.log(url);
-           short_url.current.innerText = "localhost:3000/" + res.data;
+           short_url.current.innerText = "https://shortme-frontend.herokuapp.com/" + res.data;
            short_url.current.href = res.data;
        }, (err)=>{console.log("DATA NOT SENT");})
     }
