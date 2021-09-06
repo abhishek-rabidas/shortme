@@ -7,6 +7,7 @@ import tech.shortme.Views.UrlAddRequest;
 
 @RestController
 @RequestMapping("/")
+@CrossOrigin
 public class HomeController {
 
     @Autowired

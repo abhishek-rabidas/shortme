@@ -20,7 +20,7 @@ public class MainServices {
 
     public String addURL(UrlAddRequest addRequest){
         if (addRequest.getOriginalURL() == null) throw new RuntimeException("URL Empty");
-        String originalURL = addRequest.getOriginalURL();
+        String originalURL = addRequest.getOriginalURL().replace("https://", "");
         String shortURL = urlGenerator();
         URL url = new URL();
         url.setId(urlRepo.count()+1);
@@ -30,7 +30,7 @@ public class MainServices {
         url.setClicks(0);
         url.setLastClick(null);
         urlRepo.save(url);
-        return hostname+"/"+shortURL;
+        return shortURL;
     }
 
     private String urlGenerator(){
